@@ -1,0 +1,6 @@
+.*
+!.gitignore
+/tests
+tests/
+*main*
+/__pycache__

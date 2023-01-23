@@ -8,6 +8,7 @@ import csv
 import math
 from typing import List, Tuple
 
+
 def index_range(page: int,
                 page_size: int) -> Tuple[int, int]:
     """
@@ -43,7 +44,7 @@ class Server:
         """
         assert(type(page) is int and type(page_size) is int)
         assert(page > 0 and page_size > 0)
-        dataset = self.dataset
+        dataset = self.dataset()
         start_idx, end_idx = index_range(page, page_size)
         if len(dataset) < start_idx:
             return []
