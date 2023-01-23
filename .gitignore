@@ -4,3 +4,4 @@
 tests/
 *main*
 /__pycache__
+__pycache__/
