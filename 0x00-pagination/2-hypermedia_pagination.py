@@ -52,7 +52,6 @@ class Server:
             end_idx = None
         return dataset[start_idx:end_idx]
 
-
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """
         Get page details
@@ -65,13 +64,13 @@ class Server:
             prev_page = self.get_page(page - 1, page_size)
         except(AssertionError):
             pass
-        total_pages = len(self.dataset()) / page_size
+        total_pages = len(self.dataset()) // page_size
         if len(self.dataset()) % page_size > 0:
             total_pages += 1
         ret = {'page_size': len(page_list),
                'page': page,
                'data': page_list,
                'next_page': None if len(next_page) == 0 else page + 1,
-               'prev_page': prev_page,
+               'prev_page': page - 1 if prev_page is not None else None,
                'total_pages': total_pages}
         return ret
