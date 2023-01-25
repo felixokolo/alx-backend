@@ -22,9 +22,12 @@ class LIFOCache(BaseCaching):
         """
         if key is None or item is None:
             return
+        try:
+            k = list(self.cache_data.keys())[-1]
+        except(Exception):
+            pass
         self.cache_data[key] = item
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            k = list(self.cache_data.keys())[-1]
             print('DISCARD: {}'.format(k))
             del self.cache_data[k]
 
