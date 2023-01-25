@@ -22,6 +22,8 @@ class FIFOCache(BaseCaching):
         """
         if key is None or item is None:
             return
+        if key in list(self.cache_data.keys()):
+            del self.cache_data[key]
         self.cache_data[key] = item
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             k = list(self.cache_data.keys())[0]
