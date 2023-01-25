@@ -1,7 +1,9 @@
 node_modules/
-.*
-*main*
-!.gitignore
+
 .mypy*/
-__pycache__/
+.*
+!.gitignore
+/tests
+tests/
+*main*
 *__pycache__*
