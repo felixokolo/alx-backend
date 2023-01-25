@@ -25,7 +25,7 @@ class LIFOCache(BaseCaching):
         self.cache_data[key] = item
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             k = list(self.cache_data.keys())[-1]
-            print('DISCARD:{}'.format(k))
+            print('DISCARD: {}'.format(k))
             del self.cache_data[k]
 
     def get(self, key):

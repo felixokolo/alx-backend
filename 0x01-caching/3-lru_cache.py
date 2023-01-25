@@ -36,7 +36,7 @@ class LRUCache(BaseCaching):
         self.__used[self.__age] = key
         self.__age += 1
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            print('DISCARD:{}'.format(self.__used[k]))
+            print('DISCARD: {}'.format(self.__used[k]))
             del self.cache_data[self.__used[k]]
             del self.__used[k]
 
