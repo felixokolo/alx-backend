@@ -15,7 +15,7 @@ class Config(object):
     """
     LANGUAGES = ["en", "fr"]
 
-    @babel.localeselector()
+    @babel.localeselector
     def get_locale(self) -> str:
         """Get locale config
         """
@@ -34,10 +34,8 @@ def welcome():
     Root route
     renders a welcome html page
     """
-    return render_template('0-index.html')
+    return render_template('2-index.html')
+
 
 if __name__ == '__main__':
-    config = Config()
-    babel.get_locale = config.get_locale()
-    babel.get_timezone = config.get_timezone()
     app.run('0.0.0.0')

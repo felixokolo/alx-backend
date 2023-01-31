@@ -33,12 +33,10 @@ def welcome():
     Root route
     renders a welcome html page
     """
-    return render_template('0-index.html')
+    return render_template('1-index.html')
 
 
 if __name__ == '__main__':
     config = Config()
     app.config['BABEL_DEFAULT_LOCALE'] = config.get_locale()
-    babel.get_locale = config.get_locale()
-    babel.get_timezone = config.get_timezone()
     app.run('0.0.0.0')
