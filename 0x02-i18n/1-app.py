@@ -15,12 +15,12 @@ class Config(object):
     """
     LANGUAGES = ["en", "fr"]
 
-    def get_locale():
+    def get_locale(self) -> str:
         """Get locale config
         """
         return "en"
 
-    def get_timezone():
+    def get_timezone(self) -> str:
         """
         Get timezone config
         """
@@ -28,6 +28,7 @@ class Config(object):
 
 
 if __name__ == '__main__':
-    babel.get_locale = Config.get_locale()
-    babel.get_timezone = Config.get_timezone()
+    config = Config()
+    babel.get_locale = config.get_locale()
+    babel.get_timezone = config.get_timezone()
     app.run('0.0.0.0')
