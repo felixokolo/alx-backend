@@ -16,9 +16,14 @@ class Config(object):
     LANGUAGES = ["en", "fr"]
 
     def get_locale():
+        """Get locale config
+        """
         return "en"
 
     def get_timezone():
+        """
+        Get timezone config
+        """
         return "UTC"
 
 
