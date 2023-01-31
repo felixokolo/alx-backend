@@ -3,7 +3,8 @@
 """
 
 from flask_babel import Babel
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from typing import Optional
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -15,10 +16,11 @@ class Config(object):
     """
     LANGUAGES = ["en", "fr"]
 
-    def get_locale(self) -> str:
+    @babel.localeselector
+    def get_locale(self) -> Optional[str]:
         """Get locale config
         """
-        return "en"
+        return request.accept_languages.best_match(Config.LANGUAGES)
 
     def get_timezone(self) -> str:
         """
@@ -37,6 +39,4 @@ def welcome():
 
 
 if __name__ == '__main__':
-    config = Config()
-    app.config['BABEL_DEFAULT_LOCALE'] = config.get_locale()
     app.run('0.0.0.0')
