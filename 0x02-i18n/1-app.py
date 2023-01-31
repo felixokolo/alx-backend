@@ -38,6 +38,7 @@ def welcome():
 
 if __name__ == '__main__':
     config = Config()
+    app.config['BABEL_DEFAULT_LOCALE'] = config.get_locale()
     babel.get_locale = config.get_locale()
     babel.get_timezone = config.get_timezone()
     app.run('0.0.0.0')
